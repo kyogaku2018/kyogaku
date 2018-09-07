@@ -1,0 +1,90 @@
+コンテンツ
+<div id="cntflg1"></div>
+<div id="cntflg2"></div>
+<div id="cntflg3"></div>
+<div id="cntflg4"></div>
+<div id="cntflg5"></div>
+<div id="cntflg6"></div>
+<div id="cntflg7"></div>
+
+var value1 = "<p>・現在申請中の台帳  " + data.entity[0].CNT_INFO1 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO1 > 0) {
+        domConstruct.create("a", {href:"/wagby/showListDMFDAICHOUPDSK.do", style:"text-decoration:none",innerHTML: value1}, "cntflg1");
+    } else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value1}, "cntflg1");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg1");
+}
+
+var value2 = "<p>・管理者/責任者が未登録の申請中台帳  " + data.entity[0].CNT_INFO2 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO2 > 0) {
+        domConstruct.create("a", {href:"/wagby/showListDMFDAICHOUPDSK.do?DMF_DAICHO_UPDSK_cp$002fKEIKOKU_KENSAKU$005b3$005d$002f$0040id=1", style:"text-decoration:none",innerHTML: value2}, "cntflg2");
+    } else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value2}, "cntflg2");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg2");
+}
+
+var value3 = "<p>・期限切れの台帳  " + data.entity[0].CNT_INFO3 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO3 > 0) {
+        var now = new Date();
+        var y = now.getFullYear();
+        var m = now.getMonth() + 1;
+        var d = now.getDate() - 1;
+        var dmf_link = "/wagby/showListDMFKOSHINANNAI.do?DMF_KOSHIN_ANNAI_cp$002fKYOKA_END_DATE2jshparam="+y+"/"+m+"/"+d;
+        domConstruct.create("a", {href:dmf_link, style:"text-decoration:none",innerHTML: value3}, "cntflg3");
+    } else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value3}, "cntflg3");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg3");
+}
+
+var value4 = "<p>・管理者/責任者が未登録の営業中台帳  " + data.entity[0].CNT_INFO4 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO4 > 0) {
+        domConstruct.create("a", {href:"/wagby/showListDMCDAICHOSEARCH.do?DMC_DAICHO_SEARCH_cp$002fKEIKOKU_KENSAKU$005b3$005d$002f$0040id=1", style:"text-decoration:none",innerHTML: value4}, "cntflg4");
+    } else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value4}, "cntflg4");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg4");
+}
+
+var value5 = "<p>・変更届未提出の営業中台帳  " + data.entity[0].CNT_INFO5 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO5 > 0) {
+        domConstruct.create("a", {href:"/wagby/showListDMCDAICHOSEARCH.do?DMC_DAICHO_SEARCH_cp$002fKEIKOKU_KENSAKU$005b1$005d$002f$0040id=1", style:"text-decoration:none",innerHTML: value5}, "cntflg5");
+    }else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value5}, "cntflg5");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg5");
+}
+
+var value6 = "<p>・兼務している従業者がいる台帳  " + data.entity[0].CNT_INFO6 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO6 > 0) {
+        domConstruct.create("a", {href:"/wagby/showListDMFJYUJISYAKENMU.do", style:"text-decoration:none",innerHTML: value6}, "cntflg6");
+    } else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value6}, "cntflg6");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg6");
+}
+
+var value7 = "<p>・登録している従業者情報が施設内で異なる台帳  " + data.entity[0].CNT_INFO7 + "件</p>";
+if (data.entity[0].KENGEN_INFO1 > 0 || data.entity[0].KENGEN_INFO2 > 0 || data.entity[0].KENGEN_INFO3 > 0 || data.entity[0].KENGEN_INFO9 > 0 || data.entity[0].KENGEN_INFO10 > 0) {
+    if (data.entity[0].CNT_INFO7 > 0) {
+        domConstruct.create("a", {href:"/wagby/showListDMFJYUJISYASAISHISETSU.do", style:"text-decoration:none",innerHTML: value7}, "cntflg7");
+    } else {
+        domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: value7}, "cntflg7");
+    }
+} else {
+    domConstruct.create("div", {style:"text-decoration:none; color:black",innerHTML: "<p></p>"}, "cntflg7");
+}
